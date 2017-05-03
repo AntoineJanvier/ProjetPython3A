@@ -7,6 +7,9 @@ from django.db import models
 
 
 class Image(models.Model):
+    class Meta:
+        verbose_name = 'image'
+        verbose_name_plural = 'images'
     CHOICES = (
         ("ORIGINAL", "ORIGINAL"),
         ("RED", "RED"),
@@ -15,8 +18,11 @@ class Image(models.Model):
         ("NEGATIVE", "NEGATIVE"),
         ("BLACK&WHITE", "BLACK&WHITE")
     )
-    name = models.CharField(max_length=255, default="undefined"),
-    path = models.CharField(max_length=255, default="/img"),
-    style = models.CharField(max_length=255, choices=CHOICES, default="ORIGINAL")
+    name = models.CharField(max_length=255, default="undefined", verbose_name="Nom")
+    path = models.CharField(max_length=255, default="/img", verbose_name="Chemin", unique=True)
+    style = models.CharField(max_length=255, choices=CHOICES, default="ORIGINAL", verbose_name="Effet / Style")
+
+    def __str__(self):
+        return self.name + ' - ' + self.style
 
 
