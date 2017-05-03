@@ -7,6 +7,9 @@
 {% block section %}
 <section>
     <h2 class="titles_home">Images</h2>
+    {% for image in images %}
+    {% include 'print_image.html' %}
+    {% endfor %}
 </section>
 {% endblock section %}
 

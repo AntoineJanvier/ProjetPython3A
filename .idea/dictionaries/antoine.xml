@@ -1,9 +1,15 @@
 <component name="ProjectDictionaryState">
   <dictionary name="antoine">
     <words>
+      <w>backends</w>
+      <w>clickjacking</w>
       <w>effet</w>
       <w>envoyer</w>
       <w>galery</w>
+      <w>projet</w>
+      <w>sqlite</w>
+      <w>uploadhandler</w>
+      <w>wsgi</w>
     </words>
   </dictionary>
 </component>

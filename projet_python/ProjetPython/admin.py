@@ -5,8 +5,8 @@ from .models import Image
 
 class ImageAdmin(admin.ModelAdmin):
     resource_class = Image
-    fields = ('name', 'path', 'style')
-    list_display = ('name', 'path', 'style')
-    search_fields = ('name', 'path', 'style')
+    fields = ('name', 'file', 'style')
+    list_display = ('name', 'file', 'style')
+    search_fields = ('name', 'file', 'style')
 
 admin.site.register(Image, ImageAdmin)
