@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from ProjetPython import views
+import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.home, name='home'),
+    url(r'^galery$', views.galery, name='galery'),
+    url(r'^upload', views.upload, name='upload-zone'),
 ]
