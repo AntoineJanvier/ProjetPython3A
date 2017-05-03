@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock title %}
+
+{% block section %}
+<section>
+    <h2 class="titles_home">Image</h2>
+    <h4 class="titles_home">{{ img.name }}</h4>
+    <img src="../../{{ img.file.url }}" class="img-thumbnail" style="max-width: 250px;">
+    <hr>
+    <h4>Inversé</h4>
+    <img src="../../{{ im_inverted_url }}" class="img-thumbnail" style="max-width: 250px;">
+    <h4>Nuances de gris</h4>
+    <img src="../../{{ im_grey_url }}" class="img-thumbnail" style="max-width: 250px;">
+
+</section>
+{% endblock section %}
+
+{% block footer %}
+<footer>
+    <!--<h4><a href="{% url 'upload-zone' %}">Envoyer un fichier</a></h4>-->
+</footer>
+{% endblock footer %}

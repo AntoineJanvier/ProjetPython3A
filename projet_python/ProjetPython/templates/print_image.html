@@ -1,6 +1,5 @@
 <div>
-    <h4>{{ image.name }}</h4>
     <a href="/compute_image/{{ image.id }}">
-        <img src="{{ image.file }}" class="img-thumbnail">
+        <img src="{{ image.file.url }}" class="img-thumbnail" style="max-width: 250px;">
     </a>
 </div>

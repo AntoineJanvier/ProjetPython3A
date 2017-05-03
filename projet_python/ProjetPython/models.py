@@ -6,7 +6,7 @@ from django.db import models
 # Create your models here.
 
 
-class Image(models.Model):
+class Img(models.Model):
     class Meta:
         verbose_name = 'image'
         verbose_name_plural = 'images'

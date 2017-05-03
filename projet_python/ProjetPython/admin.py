@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Image
+from .models import Img
 # Register your models here.
 
 
-class ImageAdmin(admin.ModelAdmin):
-    resource_class = Image
+class ImgAdmin(admin.ModelAdmin):
+    resource_class = Img
     fields = ('name', 'file', 'style')
     list_display = ('name', 'file', 'style')
     search_fields = ('name', 'file', 'style')
 
-admin.site.register(Image, ImageAdmin)
+admin.site.register(Img, ImgAdmin)
