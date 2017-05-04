@@ -41,6 +41,8 @@ def compute_image(request, id):
     img = Img.objects.get(id=id)
     im = Image.open(img.file.path)
 
+    # INVERTED COLORS
+    #
     cop = im.copy()
     w, h = cop.size
     pix = cop.load()
@@ -54,6 +56,8 @@ def compute_image(request, id):
     cop.save(img.file.path.split('.')[0] + "_inverted." + img.file.path.split('.')[1])
     im_inverted_url = img.file.url.split('.')[0] + "_inverted." + img.file.url.split('.')[1]
 
+    # SHADES OF GREY
+    #
     w, h = im.size
     gray = Image.new("L", (w, h))
     pix2 = gray.load()
@@ -69,6 +73,75 @@ def compute_image(request, id):
 
     gray.save(img.file.path.split('.')[0] + "_gray." + img.file.path.split('.')[1])
     im_grey_url = img.file.url.split('.')[0] + "_gray." + img.file.url.split('.')[1]
+
+    # RED FILTER
+    #
+    cop = im.copy()
+    w, h = cop.size
+    pix = cop.load()
+    for i in range(0, w):
+        for j in range(0, h):
+            r, g, b = pix[i, j]
+            r = 255
+            pix[i, j] = r, g, b
+    cop.save(img.file.path.split('.')[0] + "_red." + img.file.path.split('.')[1])
+    im_red_url = img.file.url.split('.')[0] + "_red." + img.file.url.split('.')[1]
+
+    # GREEN FILTER
+    #
+    cop = im.copy()
+    w, h = cop.size
+    pix = cop.load()
+    for i in range(0, w):
+        for j in range(0, h):
+            r, g, b = pix[i, j]
+            g = 255
+            pix[i, j] = r, g, b
+    cop.save(img.file.path.split('.')[0] + "_green." + img.file.path.split('.')[1])
+    im_green_url = img.file.url.split('.')[0] + "_green." + img.file.url.split('.')[1]
+
+    # BLUE FILTER
+    #
+    cop = im.copy()
+    w, h = cop.size
+    pix = cop.load()
+    for i in range(0, w):
+        for j in range(0, h):
+            r, g, b = pix[i, j]
+            b = 255
+            pix[i, j] = r, g, b
+    cop.save(img.file.path.split('.')[0] + "_blue." + img.file.path.split('.')[1])
+    im_blue_url = img.file.url.split('.')[0] + "_blue." + img.file.url.split('.')[1]
+
+    # LUMINOSITY 1
+    #
+    cop = im.copy()
+    pix = cop.load()
+    w, h = cop.size
+    for i in range(0, w):
+        for j in range(0, h):
+            r, g, b = pix[i, j]
+            r = r/2
+            g = g/2
+            b = b/2
+            pix[i, j] = r, g, b
+    cop.save(img.file.path.split('.')[0] + "_lum1." + img.file.path.split('.')[1])
+    im_lum1_url = img.file.url.split('.')[0] + "_lum1." + img.file.url.split('.')[1]
+
+    # LUMINOSITY 2
+    #
+    cop = im.copy()
+    pix = cop.load()
+    w, h = cop.size
+    for i in range(0, w):
+        for j in range(0, h):
+            r, g, b = pix[i, j]
+            r = r * 2
+            g = g * 2
+            b = b * 2
+            pix[i, j] = r, g, b
+    cop.save(img.file.path.split('.')[0] + "_lum2." + img.file.path.split('.')[1])
+    im_lum2_url = img.file.url.split('.')[0] + "_lum2." + img.file.url.split('.')[1]
 
     return render(request, 'compute_image.html', locals())
 
