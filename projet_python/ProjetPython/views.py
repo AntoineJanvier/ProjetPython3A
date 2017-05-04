@@ -44,13 +44,13 @@ def compute_image(request, id):
     cop = im.copy()
     w, h = cop.size
     pix = cop.load()
-    for i in range(0, w-10):
-        for j in range(0, h-10):
+    for i in range(0, w):
+        for j in range(0, h):
             r, g, b = pix[i, j]
             r = 255 - r
             g = 255 - g
             b = 255 - b
-            pix[i,j] = r, g, b
+            pix[i, j] = r, g, b
     cop.save(img.file.path.split('.')[0] + "_inverted." + img.file.path.split('.')[1])
     im_inverted_url = img.file.url.split('.')[0] + "_inverted." + img.file.url.split('.')[1]
 
@@ -63,12 +63,12 @@ def compute_image(request, id):
     w, h = cop.size
     for i in range(0, w):
         for j in range(0, h):
-            r, g, b = pix[j, i]
+            r, g, b = pix[i, j]
             sum = int((r + g + b) / 3)
-            pix2[j, i] = sum
+            pix2[i, j] = sum
 
-    cop.save(img.file.path.split('.')[0] + "_gray." + img.file.path.split('.')[1])
-    im_gray_url = img.file.url.split('.')[0] + "_gray." + img.file.url.split('.')[1]
+    gray.save(img.file.path.split('.')[0] + "_gray." + img.file.path.split('.')[1])
+    im_grey_url = img.file.url.split('.')[0] + "_gray." + img.file.url.split('.')[1]
 
     return render(request, 'compute_image.html', locals())
 
