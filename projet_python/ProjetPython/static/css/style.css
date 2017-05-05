@@ -63,3 +63,23 @@ footer {
     margin-bottom: 5px;
     box-shadow: 0 0 10px black;
 }
+
+.block_img {
+    display: inline;
+    position: relative;
+    width: 25%;
+}
+.block_img > a > img {
+    position: relative;
+    max-width: 25%;
+}
+
+#list_imgs {
+    display: inline;
+    position: relative;
+    width: 25%;
+}
+#list_imgs > img {
+    position: relative;
+    max-width: 25%;
+}
