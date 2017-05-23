@@ -7,7 +7,7 @@
 {% block section %}
 <section>
     <h2 class="titles_home">Envoyer une image</h2>
-    <form action="{% url 'upload-zone' %}" method="post">
+    <form action="{% url 'upload-zone' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit" />
