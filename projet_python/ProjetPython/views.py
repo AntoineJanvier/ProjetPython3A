@@ -41,6 +41,10 @@ def compute_image(request, id):
     img = Img.objects.get(id=id)
     im = Image.open(img.file.path)
 
+
+    ##
+    # TODO : Split onto modules
+    ##
     # INVERTED COLORS
     #
     cop = im.copy()
@@ -144,4 +148,3 @@ def compute_image(request, id):
     im_lum2_url = img.file.url.split('.')[0] + "_lum2." + img.file.url.split('.')[1]
 
     return render(request, 'compute_image.html', locals())
-
