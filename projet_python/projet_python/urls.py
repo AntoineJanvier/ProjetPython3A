@@ -22,7 +22,6 @@ import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-    url(r'^galery$', views.galery, name='galery'),
     url(r'^upload$', views.upload, name='upload-zone'),
     url(r'^compute_image/(?P<id>[0-9]+)/$', views.compute_image, name='compute_image'),
 ]

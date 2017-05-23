@@ -12,11 +12,6 @@ def home(request):
     return render(request, "home.html", locals())
 
 
-def galery(request):
-    title = "Galery"
-    return render(request, "galery.html", locals())
-
-
 def upload(request):
     title = "Upload"
     if request.method == 'POST':
