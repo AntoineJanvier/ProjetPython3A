@@ -107,5 +107,18 @@ def img_proc(img, im, type_wanted):
 
         gray.save(img.file.path.split('.')[0] + "_gray." + img.file.path.split('.')[1])
         return img.file.url.split('.')[0] + "_gray." + img.file.url.split('.')[1]
+    elif type_wanted == "VERTICAL_SYMMETRY":
+        # VERTICAL SYMMETRY
+        #
+        cop = im.copy()
+        colon, line = cop.size
+        pix = cop.load()
+        for i in range(0, colon//2):
+            for j in range(0, line):
+                r2, g2, b2 = pix[i, j]
+                pix[i, j] = pix[(colon-1)-i, j]
+                pix[(colon-1)-i, j] = r2, g2, b2
+        cop.save(img.file.path.split('.')[0] + "_verticalsymmetry." + img.file.path.split('.')[1])
+        return img.file.url.split('.')[0] + "_verticalsymmetry." + img.file.url.split('.')[1]
     else:
         return ""
