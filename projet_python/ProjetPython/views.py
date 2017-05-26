@@ -38,5 +38,8 @@ def compute_image(request, id):
     im_lum1_url = image_process.img_proc(img, im, "LUM1")
     im_lum2_url = image_process.img_proc(img, im, "LUM2")
     im_vertsym_url = image_process.img_proc(img, im, "VERTICAL_SYMMETRY")
+    im_fillred_url = image_process.img_proc(img, im, "FILL_RED")
+    im_fillgreen_url = image_process.img_proc(img, im, "FILL_GREEN")
+    im_fillblue_url = image_process.img_proc(img, im, "FILL_BLUE")
 
     return render(request, 'compute_image.html', locals())

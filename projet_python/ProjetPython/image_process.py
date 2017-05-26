@@ -120,5 +120,53 @@ def img_proc(img, im, type_wanted):
                 pix[(colon-1)-i, j] = r2, g2, b2
         cop.save(img.file.path.split('.')[0] + "_verticalsymmetry." + img.file.path.split('.')[1])
         return img.file.url.split('.')[0] + "_verticalsymmetry." + img.file.url.split('.')[1]
+    elif type_wanted == "FILL_RED":
+        # VERTICAL SYMMETRY
+        #
+        cop = im.copy()
+        colon, line = cop.size
+        pix = cop.load()
+        seuil = 150
+        for i in range(0, colon):
+            for j in range(0, line):
+                r, g, b = pix[i, j]
+                if (r < seuil) and (g < seuil) and (b < seuil):
+                    pix[i, j] = 255, g, b
+                else:
+                    pix[i, j] = 255, 255, 255
+        cop.save(img.file.path.split('.')[0] + "_fillred." + img.file.path.split('.')[1])
+        return img.file.url.split('.')[0] + "_fillred." + img.file.url.split('.')[1]
+    elif type_wanted == "FILL_GREEN":
+        # VERTICAL SYMMETRY
+        #
+        cop = im.copy()
+        colon, line = cop.size
+        pix = cop.load()
+        seuil = 150
+        for i in range(0, colon):
+            for j in range(0, line):
+                r, g, b = pix[i, j]
+                if (r < seuil) and (g < seuil) and (b < seuil):
+                    pix[i, j] = r, 255, b
+                else:
+                    pix[i, j] = 255, 255, 255
+        cop.save(img.file.path.split('.')[0] + "_fillgreen." + img.file.path.split('.')[1])
+        return img.file.url.split('.')[0] + "_fillgreen." + img.file.url.split('.')[1]
+    elif type_wanted == "FILL_BLUE":
+        # VERTICAL SYMMETRY
+        #
+        cop = im.copy()
+        colon, line = cop.size
+        pix = cop.load()
+        seuil = 150
+        for i in range(0, colon):
+            for j in range(0, line):
+                r, g, b = pix[i, j]
+                if (r < seuil) and (g < seuil) and (b < seuil):
+                    pix[i, j] = r, g, 255
+                else:
+                    pix[i, j] = 255, 255, 255
+        cop.save(img.file.path.split('.')[0] + "_fillblue." + img.file.path.split('.')[1])
+        return img.file.url.split('.')[0] + "_fillblue." + img.file.url.split('.')[1]
     else:
         return ""
