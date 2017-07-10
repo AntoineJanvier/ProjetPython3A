@@ -10,6 +10,13 @@
     <h4 class="titles_home">{{ img.name }}</h4>
     <img src="../../{{ img.file.url }}" style="max-width: 400px;">
     <hr>
+    <form method="post" action="/compute_image/{{ img.id }}/">
+            <input name="seuil" type="range" style="position: relative; max-width: 50%; left: 25%;" value="{{ seuil }}" min="0" max="255"
+                   step="5">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Changer seuil</button>
+    </form>
+    <hr>
     <div id="list_imgs">
         <img src="../../{{ im_inverted_url }}">
         <img src="../../{{ im_grey_url }}">

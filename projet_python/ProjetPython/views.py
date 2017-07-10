@@ -26,20 +26,25 @@ def upload(request):
 
 
 def compute_image(request, id):
+    if request.method == 'POST':
+        seuil = int(request.POST['seuil'])
+    else:
+        seuil = 150
+    
     title = "Compute image"
     img = Img.objects.get(id=id)
     im = Image.open(img.file.path)
 
-    im_inverted_url = image_process.img_proc(img, im, "INVERTED")
-    im_grey_url = image_process.img_proc(img, im, "GREY")
-    im_red_url = image_process.img_proc(img, im, "RED")
-    im_green_url = image_process.img_proc(img, im, "GREEN")
-    im_blue_url = image_process.img_proc(img, im, "BLUE")
-    im_lum1_url = image_process.img_proc(img, im, "LUM1")
-    im_lum2_url = image_process.img_proc(img, im, "LUM2")
-    im_vertsym_url = image_process.img_proc(img, im, "VERTICAL_SYMMETRY")
-    im_fillred_url = image_process.img_proc(img, im, "FILL_RED")
-    im_fillgreen_url = image_process.img_proc(img, im, "FILL_GREEN")
-    im_fillblue_url = image_process.img_proc(img, im, "FILL_BLUE")
+    im_inverted_url = image_process.img_proc(img, im, seuil, "INVERTED")
+    im_grey_url = image_process.img_proc(img, im, seuil, "GREY")
+    im_red_url = image_process.img_proc(img, im, seuil, "RED")
+    im_green_url = image_process.img_proc(img, im, seuil, "GREEN")
+    im_blue_url = image_process.img_proc(img, im, seuil, "BLUE")
+    im_lum1_url = image_process.img_proc(img, im, seuil, "LUM1")
+    im_lum2_url = image_process.img_proc(img, im, seuil, "LUM2")
+    im_vertsym_url = image_process.img_proc(img, im, seuil, "VERTICAL_SYMMETRY")
+    im_fillred_url = image_process.img_proc(img, im, seuil, "FILL_RED")
+    im_fillgreen_url = image_process.img_proc(img, im, seuil, "FILL_GREEN")
+    im_fillblue_url = image_process.img_proc(img, im, seuil, "FILL_BLUE")
 
     return render(request, 'compute_image.html', locals())

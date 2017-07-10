@@ -1,7 +1,7 @@
 from PIL import Image
 
 
-def img_proc(img, im, type_wanted):
+def img_proc(img, im, seuil, type_wanted):
     if type_wanted == "RED":
         # RED FILTER
         #
@@ -126,7 +126,7 @@ def img_proc(img, im, type_wanted):
         cop = im.copy()
         colon, line = cop.size
         pix = cop.load()
-        seuil = 200
+        # seuil = seuil
         for i in range(0, colon):
             for j in range(0, line):
                 r, g, b = pix[i, j]
@@ -142,7 +142,7 @@ def img_proc(img, im, type_wanted):
         cop = im.copy()
         colon, line = cop.size
         pix = cop.load()
-        seuil = 200
+        # seuil = seuil
         for i in range(0, colon):
             for j in range(0, line):
                 r, g, b = pix[i, j]
@@ -158,7 +158,7 @@ def img_proc(img, im, type_wanted):
         cop = im.copy()
         colon, line = cop.size
         pix = cop.load()
-        seuil = 200
+        # seuil = seuil
         for i in range(0, colon):
             for j in range(0, line):
                 r, g, b = pix[i, j]

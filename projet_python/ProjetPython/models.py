@@ -14,6 +14,6 @@ class Img(models.Model):
     file = models.ImageField(upload_to='upload', verbose_name="Fichier")
 
     def __str__(self):
-        return self.name + ' - ' + self.style
+        return self.name
 
 

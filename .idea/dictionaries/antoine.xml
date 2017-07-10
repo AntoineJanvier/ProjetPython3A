@@ -6,11 +6,16 @@
       <w>effet</w>
       <w>envoyer</w>
       <w>fichier</w>
+      <w>fillblue</w>
+      <w>fillgreen</w>
+      <w>fillred</w>
       <w>galery</w>
       <w>projet</w>
+      <w>seuil</w>
       <w>sqlite</w>
       <w>uploadhandler</w>
       <w>verticalsymmetry</w>
+      <w>vertsym</w>
       <w>wsgi</w>
     </words>
   </dictionary>
