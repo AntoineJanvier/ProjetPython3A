@@ -2,6 +2,9 @@ from PIL import Image
 
 
 def img_proc(img, im, seuil, type_wanted):
+
+    new_name = (img.file.path.split('.')[0] + "_" + type_wanted.lower() + "." + img.file.path.split('.')[1]).split("/projet_python/ProjetPython")
+
     if type_wanted == "RED":
         # RED FILTER
         #
@@ -13,8 +16,8 @@ def img_proc(img, im, seuil, type_wanted):
                 r, g, b = pix[i, j]
                 r = 255
                 pix[i, j] = r, g, b
-        cop.save(img.file.path.split('.')[0] + "_red." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_red." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
     elif type_wanted == "GREEN":
         # GREEN FILTER
         #
@@ -26,8 +29,8 @@ def img_proc(img, im, seuil, type_wanted):
                 r, g, b = pix[i, j]
                 g = 255
                 pix[i, j] = r, g, b
-        cop.save(img.file.path.split('.')[0] + "_green." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_green." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
 
     elif type_wanted == "BLUE":
         # BLUE FILTER
@@ -40,8 +43,8 @@ def img_proc(img, im, seuil, type_wanted):
                 r, g, b = pix[i, j]
                 b = 255
                 pix[i, j] = r, g, b
-        cop.save(img.file.path.split('.')[0] + "_blue." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_blue." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
 
     elif type_wanted == "LUM1":
         # LUMINOSITY 1
@@ -56,8 +59,8 @@ def img_proc(img, im, seuil, type_wanted):
                 g = g / 2
                 b = b / 2
                 pix[i, j] = r, g, b
-        cop.save(img.file.path.split('.')[0] + "_lum1." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_lum1." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
 
     elif type_wanted == "LUM2":
         # LUMINOSITY 2
@@ -72,8 +75,8 @@ def img_proc(img, im, seuil, type_wanted):
                 g = g * 2
                 b = b * 2
                 pix[i, j] = r, g, b
-        cop.save(img.file.path.split('.')[0] + "_lum2." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_lum2." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
     elif type_wanted == "INVERTED":
         # INVERTED COLORS
         #
@@ -87,8 +90,8 @@ def img_proc(img, im, seuil, type_wanted):
                 g = 255 - g
                 b = 255 - b
                 pix[i, j] = r, g, b
-        cop.save(img.file.path.split('.')[0] + "_inverted." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_inverted." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
     elif type_wanted == "GREY":
         # SHADES OF GREY
         #
@@ -105,8 +108,8 @@ def img_proc(img, im, seuil, type_wanted):
                 sum = int((r + g + b) / 3)
                 pix2[i, j] = sum
 
-        gray.save(img.file.path.split('.')[0] + "_gray." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_gray." + img.file.url.split('.')[1]
+        gray.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
     elif type_wanted == "VERTICAL_SYMMETRY":
         # VERTICAL SYMMETRY
         #
@@ -118,8 +121,8 @@ def img_proc(img, im, seuil, type_wanted):
                 r2, g2, b2 = pix[i, j]
                 pix[i, j] = pix[(colon-1)-i, j]
                 pix[(colon-1)-i, j] = r2, g2, b2
-        cop.save(img.file.path.split('.')[0] + "_verticalsymmetry." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_verticalsymmetry." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
     elif type_wanted == "FILL_RED":
         # VERTICAL SYMMETRY
         #
@@ -134,8 +137,8 @@ def img_proc(img, im, seuil, type_wanted):
                     pix[i, j] = 255, g, b
                 else:
                     pix[i, j] = 255, 255, 255
-        cop.save(img.file.path.split('.')[0] + "_fillred." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_fillred." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
     elif type_wanted == "FILL_GREEN":
         # VERTICAL SYMMETRY
         #
@@ -150,8 +153,8 @@ def img_proc(img, im, seuil, type_wanted):
                     pix[i, j] = r, 255, b
                 else:
                     pix[i, j] = 255, 255, 255
-        cop.save(img.file.path.split('.')[0] + "_fillgreen." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_fillgreen." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
     elif type_wanted == "FILL_BLUE":
         # VERTICAL SYMMETRY
         #
@@ -166,7 +169,7 @@ def img_proc(img, im, seuil, type_wanted):
                     pix[i, j] = r, g, 255
                 else:
                     pix[i, j] = 255, 255, 255
-        cop.save(img.file.path.split('.')[0] + "_fillblue." + img.file.path.split('.')[1])
-        return img.file.url.split('.')[0] + "_fillblue." + img.file.url.split('.')[1]
+        cop.save(new_name[0] + "/projet_python/ProjetPython" + new_name[1])
+        return new_name[1]
     else:
         return ""
